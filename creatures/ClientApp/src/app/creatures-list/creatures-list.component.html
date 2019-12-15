@@ -1,0 +1,57 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Kin</th>
+      <th>Moniker</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts" class="creature-row" [routerLink]="['/creatures', forecast.moniker]">
+      <td><a [routerLink]="['/creatures', forecast.moniker]"><h2>{{ forecast.name }}</h2></a></td>
+      <td>
+
+        <div *ngIf="forecast.parent1Moniker != forecast.parent2Moniker">
+          <div class="row">
+            <div class="col-12 col-md-6">Mother:</div>
+            <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">Father:</div>
+            <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent2Moniker]">{{ forecast.parent2Name }}</a></div>
+          </div>
+        </div>
+
+        <div *ngIf="forecast.parent1Moniker == forecast.parent2Moniker">
+          <div class="row">
+            <div class="col-12 col-md-6">Genetics:</div>
+            <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
+          </div>
+        </div>
+
+        <div *ngIf="forecast.childrenMonikers?.length > 0">
+          <hr />
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div *ngIf="forecast.childrenMonikers?.length == 1">Child:</div>
+              <div *ngIf="forecast.childrenMonikers?.length >= 2">Children:</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div *ngFor="let child of forecast.childrenMonikers; let i = index">
+                <a [routerLink]="['/creatures', child]">{{ forecast.childrenNames[i] }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </td>
+      <td>{{ forecast.moniker }}</td>
+    </tr>
+  </tbody>
+</table>

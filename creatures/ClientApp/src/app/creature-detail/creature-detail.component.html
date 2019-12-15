@@ -1,0 +1,14 @@
+<h1 id="tableLabel">{{ creature.name }}</h1>
+
+<p *ngIf="!creature"><em>Loading...</em></p>
+
+<div *ngIf="creature">
+  <div>{{ creature.moniker }}</div>
+  <div>{{ creature.parent1Moniker }}</div>
+  <div>{{ creature.parent2Moniker }}</div>
+  <div>
+    <div *ngFor="let child of creature.childrenMonikers">
+      {{ child }}
+    </div>
+  </div>
+</div>
