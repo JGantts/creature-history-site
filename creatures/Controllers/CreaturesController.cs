@@ -11,6 +11,55 @@ namespace creatures.Controllers
     [Route("api/[controller]")]
     public class CreaturesController : ControllerBase
     {
+        private static readonly HistEvent[] Events =
+        {
+            new HistEvent
+            {
+                Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
+                HistEventType = HistEventType.Born,
+                LifeStage = LifeStage.Unborn,
+                photo = "",
+                Moniker1 = "norn.chichi06.ex47.gen",
+                Moniker2 = "norn.chichi06.ex47.gen",
+                TimeUTC = 0,
+                TickAge = 0,
+                UserText = "",
+                WorldName = "Norn Paradise",
+                WorldTick = 12,
+                WorldId = "norn-parad-xvjbp-xyhye-ign3a-drjyp"
+            },
+            new HistEvent
+            {
+                Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
+                HistEventType = HistEventType.ChildBorn,
+                LifeStage = LifeStage.Adult,
+                photo = "",
+                Moniker1 = "norn.chichi06.ex47.gen",
+                Moniker2 = "norn.chichi06.ex47.gen",
+                TimeUTC = 1,
+                TickAge = 0,
+                UserText = "",
+                WorldName = "Norn Paradise",
+                WorldTick = 12,
+                WorldId = "norn-parad-xvjbp-xyhye-ign3a-drjyp"
+            },
+            new HistEvent
+            {
+                Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
+                HistEventType = HistEventType.Died,
+                LifeStage = LifeStage.Old,
+                photo = "",
+                Moniker1 = "norn.chichi06.ex47.gen",
+                Moniker2 = "norn.chichi06.ex47.gen",
+                TimeUTC = 2,
+                TickAge = 0,
+                UserText = "",
+                WorldName = "Norn Paradise",
+                WorldTick = 12,
+                WorldId = "norn-parad-xvjbp-xyhye-ign3a-drjyp"
+            },
+        };
+
         private static readonly Creature[] Creatures =
         {
             new Creature
@@ -159,7 +208,15 @@ namespace creatures.Controllers
         {
             return CreaturesWithKin().ToList();
         }
-        
+
+        [HttpGet("{id}/events")]
+        public IEnumerable<HistEvent> EventsFor(string id)
+        {
+            return Events
+                .Where(histEvent => histEvent.Moniker == id)
+                .OrderBy(histEvent => histEvent.TimeUTC);
+        }
+
         private IEnumerable<CreatureWithKin> CreaturesWithKin()
         {
             return Creatures
@@ -189,7 +246,12 @@ namespace creatures.Controllers
                     {
                         Moniker = obj.Creature.Moniker,
                         Name = obj.Creature.Name,
+                        CrossoverPointMutations = obj.Creature.CrossoverPointMutations,
+                        PointMutations = obj.Creature.PointMutations,
+                        Gender = obj.Creature.Gender,
+                        Genus = obj.Creature.Genus,
                         Birthdate = obj.Creature.Birthdate,
+
                         Parent1Moniker = obj.Creature.Parent1Moniker,
                         Parent1Name = obj.Parent1.Name,
                         Parent2Moniker = obj.Creature.Parent2Moniker,
