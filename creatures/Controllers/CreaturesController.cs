@@ -17,7 +17,7 @@ namespace creatures.Controllers
             {
                 Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
                 HistEventType = HistEventType.Born,
-                LifeStage = LifeStage.Unborn,
+                LifeStage = LifeStage.Child,
                 photo = "",
                 Moniker1 = "norn.chichi06.ex47.gen",
                 Moniker2 = "norn.chichi06.ex47.gen",

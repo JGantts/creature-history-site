@@ -1,14 +1,42 @@
-<h1 id="tableLabel">{{ creature.name }}</h1>
-
 <p *ngIf="!creature"><em>Loading...</em></p>
 
 <div *ngIf="creature">
-  <div>{{ creature.moniker }}</div>
-  <div>{{ creature.parent1Moniker }}</div>
-  <div>{{ creature.parent2Moniker }}</div>
-  <div>
-    <div *ngFor="let child of creature.childrenMonikers">
-      {{ child }}
+  <h1 id="tableLabel">
+    <span>{{ creature.name }} </span>
+    <span style="font-weight: 100">{{ creature.moniker }}</span>
+  </h1>
+  <div class="row">
+    <div class="col-12 col-md-3">
+      
+      <div>{{ creature.parent1Moniker }}</div>
+      <div>{{ creature.parent2Moniker }}</div>
+      <div>
+        <div *ngFor="let child of creature.childrenMonikers">
+          {{ child }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-9">
+      <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="events">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Time Stamp</th>
+            <th>Age</th>
+            <th>Related1</th>
+            <th>Related2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events" class="creature-row">
+            <td><h4>{{ this.histEventTypeString(event.histEventType) }}</h4></td>
+            <td>{{ event.timeUTC }}</td>
+            <td>{{ event.tickAge }}</td>
+            <td>{{ event.moniker1 }}</td>
+            <td>{{ event.moniker2 }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
