@@ -21,10 +21,9 @@
         <thead>
           <tr>
             <th>Event</th>
-            <th>Time Stamp</th>
+            <th>Time</th>
             <th>Age</th>
-            <th>Related1</th>
-            <th>Related2</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -32,8 +31,9 @@
             <td><h4>{{ this.histEventTypeString(event.histEventType) }}</h4></td>
             <td>{{ event.timeUTC }}</td>
             <td>{{ event.tickAge }}</td>
-            <td>{{ event.moniker1 }}</td>
-            <td>{{ event.moniker2 }}</td>
+            <td>
+              {{ event.moniker1 }}
+            </td>
           </tr>
         </tbody>
       </table>
