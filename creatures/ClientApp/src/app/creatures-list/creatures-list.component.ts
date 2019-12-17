@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './creatures-list.component.html',
   styleUrls: ['./creatures-list.component.css']
 })
+
 export class CreaturesListComponent {
   public forecasts: WeatherForecast[];
 
@@ -21,6 +22,8 @@ interface WeatherForecast {
     moniker: string;
     name: string;
 
+    birthEventType: BirthEventType;
+
     birthdate: string;
 
     parent1Moniker: string;
@@ -31,4 +34,11 @@ interface WeatherForecast {
 
     childrenMonikers: [string];
     childrenNames: [string];
+}
+
+enum BirthEventType {
+    Conceived = 0,
+    Spliced = 1,
+    Engineered = 2,
+    Cloned = 14,
 }

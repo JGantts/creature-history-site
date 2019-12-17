@@ -29,13 +29,21 @@ namespace creatures
         Geat = 4
     }
 
-    public enum HistEventType: int
+    public enum BirthEventType : int
     {
         Conceived = 0,
         Spliced = 1,
         Engineered = 2,
         Cloned = 14,
-        
+    }
+
+    public enum HistEventType : int
+    {
+        Conceived = 0,
+        Spliced = 1,
+        Engineered = 2,
+        Cloned = 14,
+
         Born = 3,
         Aged = 4,
         Exported = 5 ,
@@ -77,6 +85,7 @@ namespace creatures
         public int PointMutations { get; set; }
         public Gender Gender { get; set; }
         public Genus Genus { get; set; }
+        public BirthEventType BirthEventType { get; set; }
 
         public DateTime Birthdate { get; set; }
 
@@ -95,6 +104,7 @@ namespace creatures
         public int PointMutations { get; set; }
         public Gender Gender { get; set; }
         public Genus Genus { get; set; }
+        public BirthEventType BirthEventType { get; set; }
 
         public DateTime Birthdate { get; set; }
 

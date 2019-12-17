@@ -11,6 +11,8 @@ namespace creatures.Controllers
     [Route("api/[controller]")]
     public class CreaturesController : ControllerBase
     {
+
+
         private static readonly HistEvent[] Events =
         {
             new HistEvent
@@ -64,27 +66,9 @@ namespace creatures.Controllers
         {
             new Creature
             {
-                Moniker = "norn.astro.ex47.gen",
-                Name = "Astro",
-                Birthdate = DateTime.Now,
-                Parent1Moniker = "",
-                Parent2Moniker = "",
-                ChildrenMonikers = new string[] { },
-            },
-            new Creature
-            {
-                Moniker = "norn.chichi06.ex47.gen",
-                Name = "ChiChi",
-                Birthdate = DateTime.Now,
-                Parent1Moniker = "",
-                Parent2Moniker = "",
-                ChildrenMonikers = new string[] { },
-            },
-
-            new Creature
-            {
                 Moniker = "003-magic-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Jace",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "001-wizard-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "002-norn-xvjbp-xyhye-ign3a-drjyp",
@@ -94,6 +78,7 @@ namespace creatures.Controllers
             {
                 Moniker = "003-flower-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Laynacae",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "002-lion-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "001-cat-xvjbp-xyhye-ign3a-drjyp",
@@ -104,8 +89,9 @@ namespace creatures.Controllers
             {
                 Moniker = "001-wizard-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Amber",
+                BirthEventType = BirthEventType.Engineered,
                 Birthdate = DateTime.Now,
-                Parent1Moniker = "norn.chichi06.ex47.gen",
+                Parent1Moniker = "",
                 Parent2Moniker = "norn.chichi06.ex47.gen",
                 ChildrenMonikers = new string[] {
                     "003-magic-xvjbp-xyhye-ign3a-drjyp",
@@ -115,8 +101,9 @@ namespace creatures.Controllers
             {
                 Moniker = "001-cat-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Allen",
+                BirthEventType = BirthEventType.Engineered,
                 Birthdate = DateTime.Now,
-                Parent1Moniker = "norn.astro.ex47.gen",
+                Parent1Moniker = "",
                 Parent2Moniker = "norn.astro.ex47.gen",
                 ChildrenMonikers = new string[] {
                     "003-flower-xvjbp-xyhye-ign3a-drjyp",
@@ -129,6 +116,7 @@ namespace creatures.Controllers
             {
                 Moniker = "002-sprite-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Kevin",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
@@ -138,6 +126,7 @@ namespace creatures.Controllers
             {
                 Moniker = "002-norn-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Benjamin",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
@@ -149,6 +138,7 @@ namespace creatures.Controllers
             {
                 Moniker = "002-wizard-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Jacob",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
@@ -158,6 +148,7 @@ namespace creatures.Controllers
             {
                 Moniker = "002-lion-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Samantha",
+                BirthEventType = BirthEventType.Conceived,
                 Birthdate = DateTime.Now,
                 Parent1Moniker = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 Parent2Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
@@ -170,8 +161,9 @@ namespace creatures.Controllers
             {
                 Moniker = "001-flower-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Thomas",
+                BirthEventType = BirthEventType.Engineered,
                 Birthdate = DateTime.Now,
-                Parent1Moniker = "norn.chichi06.ex47.gen",
+                Parent1Moniker = "",
                 Parent2Moniker = "norn.chichi06.ex47.gen",
                 ChildrenMonikers = new string[] {
                     "002-sprite-xvjbp-xyhye-ign3a-drjyp",
@@ -184,8 +176,9 @@ namespace creatures.Controllers
             {
                 Moniker = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 Name = "Kathy",
+                BirthEventType = BirthEventType.Engineered,
                 Birthdate = DateTime.Now,
-                Parent1Moniker = "norn.astro.ex47.gen",
+                Parent1Moniker = "",
                 Parent2Moniker = "norn.astro.ex47.gen",
                 ChildrenMonikers = new string[] {
                     "002-sprite-xvjbp-xyhye-ign3a-drjyp",
@@ -194,6 +187,7 @@ namespace creatures.Controllers
                     "002-lion-xvjbp-xyhye-ign3a-drjyp",
                 },
             },
+
         };
 
         private readonly ILogger<CreaturesController> _logger;
@@ -220,7 +214,7 @@ namespace creatures.Controllers
         private IEnumerable<CreatureWithKin> CreaturesWithKin()
         {
             return Creatures
-                .Join(
+                .GroupJoin(
                     Creatures,
                     creature => creature.Parent1Moniker,
                     creature => creature.Moniker,
@@ -228,9 +222,9 @@ namespace creatures.Controllers
                     new
                     {
                         Creature = creature1,
-                        Parent1 = creature2
+                        Parent1 = creature2.FirstOrDefault()
                     })
-                .Join(
+                .GroupJoin(
                     Creatures,
                     creature => creature.Creature.Parent2Moniker,
                     creature => creature.Moniker,
@@ -239,7 +233,7 @@ namespace creatures.Controllers
                     {
                         Creature = creature1.Creature,
                         Parent1 = creature1.Parent1,
-                        Parent2 = creature2
+                        Parent2 = creature2.FirstOrDefault()
                     })
                 .Select(obj =>
                     new CreatureWithKin
@@ -251,11 +245,12 @@ namespace creatures.Controllers
                         Gender = obj.Creature.Gender,
                         Genus = obj.Creature.Genus,
                         Birthdate = obj.Creature.Birthdate,
+                        BirthEventType = obj.Creature.BirthEventType,
 
                         Parent1Moniker = obj.Creature.Parent1Moniker,
-                        Parent1Name = obj.Parent1.Name,
+                        Parent1Name = obj.Parent1?.Name ?? "No Parent",
                         Parent2Moniker = obj.Creature.Parent2Moniker,
-                        Parent2Name = obj.Parent2.Name,
+                        Parent2Name = obj.Parent2?.Name ?? "No Parent",
                         ChildrenMonikers = obj.Creature.ChildrenMonikers,
                         ChildrenNames = obj.Creature.ChildrenMonikers
                             .Join(
@@ -281,6 +276,7 @@ namespace creatures.Controllers
                          Moniker = obj.Moniker,
                          Name = obj.Name,
                          Birthdate = obj.Birthdate,
+                         BirthEventType = obj.BirthEventType,
                          Parent1Moniker = obj.Parent1Moniker,
                          Parent1Name = "",
                          Parent2Moniker = obj.Parent2Moniker,
