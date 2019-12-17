@@ -7,14 +7,62 @@
   </h1>
   <div class="row">
     <div class="col-12 col-md-3">
-      
-      <div>{{ creature.parent1Moniker }}</div>
-      <div>{{ creature.parent2Moniker }}</div>
-      <div>
-        <div *ngFor="let child of creature.childrenMonikers">
-          {{ child }}
+
+       <div [ngSwitch]="creature.birthEventType">
+
+          <div *ngSwitchCase="0">
+            <div class="row">
+              <div class="col-12 col-md-6">Mother:</div>
+              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6">Father:</div>
+              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="1">
+            <div class="row">
+              <div class="col-12 col-md-6">Parent 1:</div>
+              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6">Parent 2:</div>
+              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="2">
+            <div class="row">
+              <div class="col-12 col-md-12">Genetics:</div>
+              <div class="col-12 col-md-12">{{ creature.parent2Moniker }}</div>
+            </div>
+          </div>
+
+          <div *ngSwitchCase="14">
+            <div class="row">
+              <div class="col-12 col-md-6">Clone Source:</div>
+              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+            </div>
+          </div>
+
         </div>
-      </div>
+
+        <div *ngIf="creature.childrenMonikers?.length > 0">
+          <hr />
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div *ngIf="creature.childrenMonikers?.length == 1">Child:</div>
+              <div *ngIf="creature.childrenMonikers?.length >= 2">Children:</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div *ngFor="let child of creature.childrenMonikers; let i = index">
+                <a [routerLink]="['/creatures', child]">{{ creature.childrenNames[i] }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </div>
     <div class="col-12 col-md-9">
       <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="events">
