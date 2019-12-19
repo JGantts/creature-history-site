@@ -36,8 +36,8 @@ namespace creatures.Controllers
                 HistEventType = HistEventType.ChildBorn,
                 LifeStage = LifeStage.Adult,
                 photo = "",
-                Moniker1 = "norn.chichi06.ex47.gen",
-                Moniker2 = "norn.chichi06.ex47.gen",
+                Moniker1 = "002-sprite-xvjbp-xyhye-ign3a-drjyp",
+                Moniker2 = "001-butterfly-xvjbp-xyhye-ign3a-drjyp",
                 TimeUTC = 1,
                 TickAge = 0,
                 UserText = "",
@@ -290,8 +290,36 @@ namespace creatures.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(string id, [FromBody]CreatureFromEngine value)
         {
+
+            return StatusCode(200);
         }
+    }
+
+    public class CreatureFromEngine
+    {
+        public string Moniker { get; set; }
+        public string Name { get; set; }
+        public int CrossoverPointMutations { get; set; }
+        public int PointMutations { get; set; }
+        public Gender Gender { get; set; }
+        public Genus Genus { get; set; }
+        public CreatureEventFromEngine[] Events { get; set; }
+    }
+
+    public class CreatureEventFromEngine
+    {
+        public int HistEventType { get; set; }
+        public int LifeStage { get; set; }
+        public string photo { get; set; }
+        public string Moniker1 { get; set; }
+        public string Moniker2 { get; set; }
+        public int TimeUTC { get; set; }
+        public int TickAge { get; set; }
+        public string WorldName { get; set; }
+        public int WorldTick { get; set; }
+        public string WorldId { get; set; }
+        public string UserText { get; set; }
     }
 }
