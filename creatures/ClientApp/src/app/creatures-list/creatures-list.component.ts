@@ -10,8 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class CreaturesListComponent {
   public forecasts: WeatherForecast[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/creatures').subscribe(result => {
+  constructor(http: HttpClient) {
+    http.get<WeatherForecast[]>('https://lemurware.tech/' + 'api/v1/creatures').subscribe(result => {
       this.forecasts = result;
     }, error => console.error(error));
   }
@@ -32,8 +32,12 @@ interface WeatherForecast {
     parent2Moniker: string;
     parent2Name: string;
 
-    childrenMonikers: [string];
-    childrenNames: [string];
+    children: [Child];
+}
+
+interface Child {
+    moniker: string;
+    name: string;
 }
 
 enum BirthEventType {

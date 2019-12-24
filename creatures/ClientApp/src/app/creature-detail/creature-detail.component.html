@@ -48,16 +48,16 @@
 
         </div>
 
-        <div *ngIf="creature.childrenMonikers?.length > 0">
+        <div *ngIf="creature.children?.length > 0">
           <hr />
           <div class="row">
             <div class="col-12 col-md-6">
-              <div *ngIf="creature.childrenMonikers?.length == 1">Child:</div>
-              <div *ngIf="creature.childrenMonikers?.length >= 2">Children:</div>
+              <div *ngIf="creature.children?.length == 1">Child:</div>
+              <div *ngIf="creature.children?.length >= 2">Children:</div>
             </div>
             <div class="col-12 col-md-6">
-              <div *ngFor="let child of creature.childrenMonikers; let i = index">
-                <a [routerLink]="['/creatures', child]">{{ creature.childrenNames[i] }}</a>
+              <div *ngFor="let child of creature.children">
+                <a [routerLink]="['/creatures', child.moniker]">{{ child.name }}</a>
               </div>
             </div>
           </div>

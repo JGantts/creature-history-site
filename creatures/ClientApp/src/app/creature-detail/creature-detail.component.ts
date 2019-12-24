@@ -13,17 +13,16 @@ export class CreatureDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private http: HttpClient,
-        @Inject('BASE_URL') private baseUrl: string
     ) { }
 
     ngOnInit() {
         this.route.paramMap.subscribe(params => {
-            this.http.get<CreatureWithKin>(this.baseUrl + 'api/creatures/' + params.get('moniker')).subscribe(result => {
+            this.http.get<CreatureWithKin>('https://lemurware.tech/' + 'api/v1/creatures/' + params.get('moniker')).subscribe(result => {
                 this.creature = result;
             }, error => console.error(error));
         });
         this.route.paramMap.subscribe(params => {
-            this.http.get<Event>(this.baseUrl + 'api/creatures/' + params.get('moniker') + '/events').subscribe(result => {
+            this.http.get<Event>('https://lemurware.tech/' + 'api/v1/creatures/' + params.get('moniker') + '/events').subscribe(result => {
                 this.events = result;
             }, error => console.error(error));
         });
@@ -99,6 +98,8 @@ interface CreatureWithKin {
     moniker: string;
     name: string;
 
+    birthEventType: BirthEventType;
+
     birthdate: string;
 
     parent1Moniker: string;
@@ -107,8 +108,12 @@ interface CreatureWithKin {
     parent2Moniker: string;
     parent2Name: string;
 
-    childrenMonikers: [string];
-    childrenNames: [string];
+    children: [Child];
+}
+
+interface Child {
+    moniker: string;
+    name: string;
 }
 
 interface Event {
@@ -158,4 +163,10 @@ enum HistEventType{
     LaidByMother = 11,
     LaidAnEgg = 12,
     Photographed = 13,
+}
+enum BirthEventType {
+    Conceived = 0,
+    Spliced = 1,
+    Engineered = 2,
+    Cloned = 14,
 }

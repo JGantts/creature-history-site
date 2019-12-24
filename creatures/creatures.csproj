@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +39,8 @@
     <None Remove="ClientApp\src\app\creature-detail\creature-detail.component.ts" />
     <None Remove="ClientApp\src\app\creature-detail\creature-detail.component.ts" />
     <None Remove="ClientApp\src\app\creature-detail\creature-detail.component.ts" />
+    <Content Remove="Properties\app.config" />
+    <Content Remove="connections.config" />
   </ItemGroup>
 
   <ItemGroup>
