@@ -12,23 +12,23 @@
 
           <div *ngSwitchCase="0">
             <div class="row">
-              <div class="col-12 col-md-6">Mother:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Mother:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
             </div>
             <div class="row">
-              <div class="col-12 col-md-6">Father:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
+              <div class="col-12 col-md-3">Father:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
             </div>
           </div>
 
           <div *ngSwitchCase="1">
             <div class="row">
-              <div class="col-12 col-md-6">Parent 1:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Parent 1:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
             </div>
             <div class="row">
-              <div class="col-12 col-md-6">Parent 2:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
+              <div class="col-12 col-md-3">Parent 2:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', creature.parent2Moniker]">{{ creature.parent2Name }}</a></div>
             </div>
           </div>
 
@@ -41,8 +41,8 @@
 
           <div *ngSwitchCase="14">
             <div class="row">
-              <div class="col-12 col-md-6">Clone Source:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Clone Source:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', creature.parent1Moniker]">{{ creature.parent1Name }}</a></div>
             </div>
           </div>
 
@@ -51,11 +51,11 @@
         <div *ngIf="creature.children?.length > 0">
           <hr />
           <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-3">
               <div *ngIf="creature.children?.length == 1">Child:</div>
               <div *ngIf="creature.children?.length >= 2">Children:</div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-9">
               <div *ngFor="let child of creature.children">
                 <a [routerLink]="['/creatures', child.moniker]">{{ child.name }}</a>
               </div>
@@ -80,7 +80,157 @@
             <td>{{ event.timeUTC }}</td>
             <td>{{ event.tickAge }}</td>
             <td>
-              {{ event.moniker1 }}
+              <div [ngSwitch]="event.histEventType">
+
+                <div *ngSwitchCase="0">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Mother:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Father:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                    <div class="col-12 col-md-12">Home World:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="1">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Parent 1:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Parent 2:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                    <div class="col-12 col-md-12">Home World:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="2">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Genetics:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                    <div class="col-12 col-md-12">Home World:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="14">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Clone Source:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Home World:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+
+                <div *ngSwitchCase="3">
+                  <div class="row">
+                    <div class="col-12 col-md-12">-</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="4">
+                  <div class="row">
+                    <div class="col-12 col-md-12">-</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="5">
+                  <div class="row">
+                    <div class="col-12 col-md-12">From:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="6">
+                  <div class="row">
+                    <div class="col-12 col-md-12">To:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="7">
+                  <div class="row">
+                    <div class="col-12 col-md-12">-</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="8">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Child:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Father:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="9">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Child:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Mother:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="10">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Child:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                    <div class="col-12 col-md-12">Spouse:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker2 }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="15">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Cloned Spawn:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="16">
+                  <div class="row">
+                    <div class="col-12 col-md-12">From:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="17">
+                  <div class="row">
+                    <div class="col-12 col-md-12">To:</div>
+                    <div class="col-12 col-md-12">{{ event.worldName }}</div>
+                  </div>
+                </div>
+
+
+                <div *ngSwitchCase="11">
+                  <div class="row">
+                    <div class="col-12 col-md-12">-</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="12">
+                  <div class="row">
+                    <div class="col-12 col-md-12">Child:</div>
+                    <div class="col-12 col-md-12">{{ event.moniker1 }}</div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="13">
+                  <div class="row">
+                    <div class="col-12 col-md-12">-</div>
+                  </div>
+                </div>
+
+              </div>
+              <div *ngIf="event.photo">
+                  <div class="row">
+                    <div class="col-12 col-md-3">Photo: </div>
+                    <div class="col-12 col-md-9">{{ event.photo }}</div>
+                  </div>
+              </div>
+
             </td>
           </tr>
         </tbody>

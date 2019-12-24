@@ -1,6 +1,6 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">All Creatures:</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This will probably stop working once the number of creatures grows too large.</p>
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
@@ -9,7 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Kin</th>
-      <th>Moniker</th>
+      <th>World</th>
     </tr>
   </thead>
   <tbody>
@@ -20,37 +20,37 @@
 
           <div *ngSwitchCase="0">
             <div class="row">
-              <div class="col-12 col-md-6">Mother:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Mother:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
             </div>
             <div class="row">
-              <div class="col-12 col-md-6">Father:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent2Moniker]">{{ forecast.parent2Name }}</a></div>
+              <div class="col-12 col-md-3">Father:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', forecast.parent2Moniker]">{{ forecast.parent2Name }}</a></div>
             </div>
           </div>
 
           <div *ngSwitchCase="1">
             <div class="row">
-              <div class="col-12 col-md-6">Parent 1:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Parent 1:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
             </div>
             <div class="row">
-              <div class="col-12 col-md-6">Parent 2:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent2Moniker]">{{ forecast.parent2Name }}</a></div>
+              <div class="col-12 col-md-3">Parent 2:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', forecast.parent2Moniker]">{{ forecast.parent2Name }}</a></div>
             </div>
           </div>
 
           <div *ngSwitchCase="2">
             <div class="row">
-              <div class="col-12 col-md-6">Genetics:</div>
-              <div class="col-12 col-md-6">{{ forecast.parent2Moniker }}</div>
+              <div class="col-12 col-md-3">Genetics:</div>
+              <div class="col-12 col-md-9">{{ forecast.parent2Moniker }}</div>
             </div>
           </div>
 
           <div *ngSwitchCase="14">
             <div class="row">
-              <div class="col-12 col-md-6">Clone Source:</div>
-              <div class="col-12 col-md-6"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
+              <div class="col-12 col-md-3">Clone Source:</div>
+              <div class="col-12 col-md-9"><a [routerLink]="['/creatures', forecast.parent1Moniker]">{{ forecast.parent1Name }}</a></div>
             </div>
           </div>
 
@@ -59,11 +59,11 @@
         <div *ngIf="forecast.children?.length > 0">
           <hr />
           <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-3">
               <div *ngIf="forecast.children?.length == 1">Child:</div>
               <div *ngIf="forecast.children?.length >= 2">Children:</div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-9">
               <div *ngFor="let child of forecast.children">
                 <a [routerLink]="['/creatures', child.moniker]">{{ child.name }}</a>
               </div>
