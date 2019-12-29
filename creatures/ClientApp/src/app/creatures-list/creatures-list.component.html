@@ -14,7 +14,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let forecast of forecasts" class="creature-row">
-      <td><a [routerLink]="['/creatures', forecast.moniker]"><h2>{{ forecast.name }}</h2></a></td>
+      <td>
+        <a [routerLink]="['/creatures', forecast.moniker]"><h2>{{ forecast.name }}</h2></a>
+        <img *ngIf="forecast.photo" src="https://lemurware.tech/api/v1/creatures/images/{{ forecast.photo }}" />
+      </td>
       <td>
         <div [ngSwitch]="forecast.birthEventType">
 

@@ -28,6 +28,11 @@ export class CreatureDetailComponent implements OnInit {
         });
     }
 
+    timeUtcString(timeUtc: number): string {
+        let date = new Date(timeUtc * 1000)
+        return date.toLocaleString();
+    }
+
     lifeStageString(ls: LifeStage): string {
         switch (ls) {
             case LifeStage.Unborn:
@@ -109,6 +114,8 @@ interface CreatureWithKin {
     parent2Name: string;
 
     children: [Child];
+
+    photo: string;
 }
 
 interface Child {

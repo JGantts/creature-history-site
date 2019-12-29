@@ -36,6 +36,8 @@ interface WeatherForecast {
     birthWorldId: string;
 
     children: [Child];
+
+    photo: string;
 }
 
 interface Child {
