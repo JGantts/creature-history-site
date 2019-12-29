@@ -224,10 +224,11 @@
                 </div>
 
               </div>
+
               <div *ngIf="event.photo">
                   <div class="row">
                     <div class="col-12 col-md-3">Photo: </div>
-                    <div class="col-12 col-md-9">{{ event.photo }}</div>
+                    <div class="col-12 col-md-9"><img src="https://lemurware.tech/api/v1/creatures/images/{{ event.photo }}" /></div>
                   </div>
               </div>
 

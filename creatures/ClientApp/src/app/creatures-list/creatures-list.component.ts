@@ -32,6 +32,9 @@ interface WeatherForecast {
     parent2Moniker: string;
     parent2Name: string;
 
+    birthWorldName: string;
+    birthWorldId: string;
+
     children: [Child];
 }
 
