@@ -15,6 +15,11 @@ export class CreaturesListComponent {
       this.forecasts = result;
     }, error => console.error(error));
   }
+
+  timeUtcString(timeUtc: number): string {
+      let date = new Date(timeUtc * 1000)
+      return date.toLocaleString();
+  }
 }
 
 interface WeatherForecast {

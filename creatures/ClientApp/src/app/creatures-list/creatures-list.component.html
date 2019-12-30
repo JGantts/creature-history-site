@@ -1,6 +1,6 @@
-<h1 id="tableLabel">All Creatures:</h1>
+<h1 id="tableLabel">12 Random Creatures:</h1>
 
-<p>This will probably stop working once the number of creatures grows too large.</p>
+<p>This will probably still stop working once the number of creatures grows too large. Selecting 12 random creatures still touches every creature the way I'm doing it.</p>
 
 <p *ngIf="!forecasts"><em>Loading...</em></p>
 
@@ -9,7 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Kin</th>
-      <th>Home World</th>
+      <th>Home World<br />Birthdate</th>
     </tr>
   </thead>
   <tbody>
@@ -76,7 +76,7 @@
         </div>
 
       </td>
-      <td>{{ forecast.birthWorldName }}</td>
+      <td>{{ forecast.birthWorldName }}<hr />{{ this.timeUtcString(forecast.birthdate) }}</td>
     </tr>
   </tbody>
 </table>
