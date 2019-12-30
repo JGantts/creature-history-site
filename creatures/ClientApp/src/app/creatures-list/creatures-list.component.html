@@ -15,8 +15,10 @@
   <tbody>
     <tr *ngFor="let forecast of forecasts" class="creature-row">
       <td>
-        <a [routerLink]="['/creatures', forecast.moniker]"><h2>{{ forecast.name }}</h2>
-        <img *ngIf="forecast.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/images/{{ forecast.photo }}" />
+        <a [routerLink]="['/creatures', forecast.moniker]">
+          <h2 *ngIf="forecast.name">{{ forecast.name }}</h2>
+          <h2 *ngIf="!forecast.name">Unnamed</h2>
+          <img *ngIf="forecast.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/images/{{ forecast.photo }}" />
         </a>
       </td>
       <td>

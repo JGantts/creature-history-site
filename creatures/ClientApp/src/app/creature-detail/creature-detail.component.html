@@ -2,7 +2,8 @@
 
 <div *ngIf="creature">
   <h1 id="tableLabel">
-    <span>{{ creature.name }} </span>
+    <span *ngIf="creature.name">{{ creature.name }} </span>
+    <span *ngIf="!creature.name">Unnamed </span>
     <span style="font-weight: 100">{{ creature.moniker }}</span>
   </h1>
   <div class="row">
