@@ -33,6 +33,23 @@ export class CreatureDetailComponent implements OnInit {
         return date.toLocaleString();
     }
 
+    ageTicksString(ageTicks: number): string {
+        if (ageTicks === -1) {
+            return "Not born.";
+        }
+
+        let ageSeconds = Math.round(ageTicks / 20);
+        let portionSeconds = ageSeconds % 60;
+        let ageMinutes = (ageSeconds - portionSeconds) / 60;
+        let portionMinutes = ageMinutes % 60;
+        let ageHours = (ageMinutes - portionMinutes) / 60;
+
+        let hours = ageHours.toString().padStart(2, '0');
+        let minutes = portionMinutes.toString().padStart(2, '0');
+
+        return hours + ":" + minutes;
+    }
+
     lifeStageString(ls: LifeStage): string {
         switch (ls) {
             case LifeStage.Unborn:

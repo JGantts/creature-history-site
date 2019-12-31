@@ -82,7 +82,7 @@
               <img *ngIf="event.photo" src="https://lemurware.tech/api/v1/creatures/images/{{ event.photo }}" />
             </td>
             <td>{{ this.timeUtcString(event.timeUTC) }}</td>
-            <td>{{ event.tickAge }}</td>
+            <td>{{ this.ageTicksString(event.tickAge) }}</td>
             <td>
               <div [ngSwitch]="event.histEventType">
 
