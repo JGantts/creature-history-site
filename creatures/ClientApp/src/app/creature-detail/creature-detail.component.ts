@@ -129,7 +129,9 @@ interface Event {
     lifeStage: LifeStage;
     photo: string;
     moniker1: string;
+    moniker1Name: string;
     moniker2: string;
+    moniker2Name: string;
     timeUTC: number;
     tickAge: number;
     userText: string;
