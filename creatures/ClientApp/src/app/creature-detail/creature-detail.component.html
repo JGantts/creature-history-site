@@ -91,11 +91,10 @@
                   <br />
                   <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>
                   and
-                  <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>
+                  <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>.
                   <br />
                   <br />
-                  Home World:
-                  {{ event.worldName }}
+                  Home World: {{ event.worldName }}.
                 </div>
 
                 <div *ngSwitchCase="1">
@@ -103,11 +102,10 @@
                   <br />
                   <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>
                   and
-                  <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>
+                  <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>.
                   <br />
                   <br />
-                  Home World:
-                  {{ event.worldName }}
+                  Home World: {{ event.worldName }}.
                 </div>
 
                 <div *ngSwitchCase="2">
@@ -116,27 +114,48 @@
                   {{ event.moniker2Name }}
                   <br />
                   <br />
-                  Home World:
-                  {{ event.worldName }}
+                  Home World: {{ event.worldName }}.
                 </div>
 
                 <div *ngSwitchCase="14">
                   Cloned from
                   <br />
-                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>
+                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>.
                   <br />
                   <br />
-                  Home World:
-                  {{ event.worldName }}
+                  Home World: {{ event.worldName }}.
                 </div>
 
 
                 <div *ngSwitchCase="3">
-                  Hatched
+                  Born.
                 </div>
 
                 <div *ngSwitchCase="4">
-                  Aged
+                  <div [ngSwitch]="event.lifeStage">
+                    <div *ngSwitchCase="1">
+                      Became child.
+                    </div>
+                    <div *ngSwitchCase="2">
+                      Became adolescent.
+                    </div>
+                    <div *ngSwitchCase="3">
+                      Became youth.
+                    </div>
+                    <div *ngSwitchCase="4">
+                      Became adult.
+                    </div>
+                    <div *ngSwitchCase="5">
+                      Became old.
+                    </div>
+                    <div *ngSwitchCase="6">
+                      Became ancient.
+                    </div>
+                    <div *ngSwitchCase="7">
+                      Became dead.
+                    </div>
+
+                  </div>
                 </div>
 
                 <div *ngSwitchCase="5">
@@ -148,7 +167,7 @@
                 </div>
 
                 <div *ngSwitchCase="7">
-                  Died
+                  Died.
                 </div>
 
                 <div *ngSwitchCase="8">
@@ -158,7 +177,7 @@
                   <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>
                   <br />
                   with
-                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>
+                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>.
                 </div>
 
                 <div *ngSwitchCase="9">
@@ -167,7 +186,7 @@
                   <a [routerLink]="['/creatures', event.moniker2]">{{ event.moniker2Name }}</a>
                   <br />
                   with
-                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>
+                  <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>.
                 </div>
 
                 <div *ngSwitchCase="10">
@@ -190,7 +209,7 @@
 
 
                 <div *ngSwitchCase="11">
-                  Laid by mother.
+                  Laid by <a [routerLink]="['/creatures', event.moniker1]">{{ event.moniker1Name }}</a>.
                 </div>
 
                 <div *ngSwitchCase="12">
