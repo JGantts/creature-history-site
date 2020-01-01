@@ -67,23 +67,16 @@
     </div>
     <div class="col-12 col-md-9">
       <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="events">
-        <thead>
-          <tr>
-            <th>Event</th>
-            <th>Time</th>
-            <th>Age</th>
-            <th>Details</th>
-          </tr>
-        </thead>
         <tbody>
           <tr *ngFor="let event of events" class="creature-row">
             <td>
-              <h6>{{ this.histEventTypeString(event.histEventType) }}</h6>
-              <img *ngIf="event.photo" src="https://lemurware.tech/api/v1/creatures/images/{{ event.photo }}" />
-            </td>
-            <td>{{ this.timeUtcString(event.timeUTC) }}</td>
-            <td>{{ this.ageTicksString(event.tickAge) }}</td>
+              <img *ngIf="event.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/images/{{ event.photo }}" /><br />
+              {{ this.ageTicksString(event.tickAge) }}</td>
             <td>
+              <h6>
+                <span>{{ this.histEventTypeString(event.histEventType) }} </span>
+                <span style="font-weight: 100">{{ this.timeUtcString(event.timeUTC) }}</span>
+              </h6>
               <div [ngSwitch]="event.histEventType">
 
                 <div *ngSwitchCase="0">

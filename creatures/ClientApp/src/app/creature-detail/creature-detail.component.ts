@@ -35,7 +35,7 @@ export class CreatureDetailComponent implements OnInit {
 
     ageTicksString(ageTicks: number): string {
         if (ageTicks === -1) {
-            return "Not born.";
+            return "Not born";
         }
 
         let ageSeconds = Math.round(ageTicks / 20);
