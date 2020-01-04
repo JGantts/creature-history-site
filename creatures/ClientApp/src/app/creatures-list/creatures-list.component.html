@@ -11,7 +11,7 @@
         <a [routerLink]="['/creatures', forecast.moniker]">
           <h2 *ngIf="forecast.name">{{ forecast.name }}</h2>
           <h2 *ngIf="!forecast.name">Unnamed</h2>
-          <img *ngIf="forecast.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/images/{{ forecast.photo }}" />
+          <img width="119" height="139" src="https://lemurware.tech/api/v1/creatures/{{ forecast.moniker }}/image" />
         </a>
       </td>
       <td>

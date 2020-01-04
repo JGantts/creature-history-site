@@ -70,13 +70,13 @@
         <tbody>
           <tr *ngFor="let event of events" class="creature-row">
             <td>
-              <img *ngIf="event.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/images/{{ event.photo }}" /><br />
+              <img *ngIf="event.photo" width="119" height="139" src="https://lemurware.tech/api/v1/creatures/{{ event.moniker }}/events/{{ event.eventNumber }}/image" /><br />
               {{ this.ageTicksString(event.tickAge) }}</td>
             <td>
-              <h6>
+              <h5>
                 <span>{{ this.histEventTypeString(event.histEventType) }} </span>
                 <span style="font-weight: 100">{{ this.timeUtcString(event.timeUTC) }}</span>
-              </h6>
+              </h5>
               <div [ngSwitch]="event.histEventType">
 
                 <div *ngSwitchCase="0">
