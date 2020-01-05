@@ -12,7 +12,12 @@ export class CreaturesListComponent {
 
   constructor(http: HttpClient) {
     http.get<WeatherForecast[]>('https://lemurware.tech/' + 'api/v1/creatures').subscribe(result => {
-      this.forecasts = result;
+        this.forecasts = result;
+        this.forecasts.forEach(function (item) {
+            http.get<Name>('https://lemurware.tech/' + 'api/v1/creatures/' + item.moniker + "/name").subscribe(result => {
+                item.name = result.name;
+            }, error => console.error(error));
+        });  
     }, error => console.error(error));
   }
 
@@ -43,6 +48,10 @@ interface WeatherForecast {
     children: [Child];
 
     photo: string;
+}
+
+interface Name {
+    name: string;
 }
 
 interface Child {
